@@ -1,4 +1,5 @@
 # TE-CMD
+<img height="400" width="500" alt="GIF" align="right" src="https://github.com/31bc/31bc/blob/main/13626.gif">
 
 Portable Windows command line front end for the DecompilerSuite 3.0.0.0 analysis
 engines: format detection, static PE analysis, .NET decompilation and unpacking
