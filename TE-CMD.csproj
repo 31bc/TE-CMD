@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>TECmd</RootNamespace>
+    <AssemblyName>TE-CMD</AssemblyName>
+
+    <!-- TE-CMD CLI version -->
+    <Version>1.0.0</Version>
+    <AssemblyTitle>TE-CMD</AssemblyTitle>
+    <Product>TE-CMD DecompilerSuite CLI Edition</Product>
+    <Company>DS</Company>
+    <Description>TE-CMD - command line front end for the DecompilerSuite engine</Description>
+
+    <!-- Inherited from DecompilerSuite (DecompilerSuite.csproj) -->
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>portable</DebugType>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ICSharpCode.Decompiler" Version="8.2.0.7535" />
+  </ItemGroup>
+
+  <!-- Assets are resolved by the engines through AppContext.BaseDirectory\Assets -->
+  <ItemGroup>
+    <Content Include="Assets\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Remove="output\**" />
+    <None Remove="output\**" />
+    <Compile Remove="samples\**" />
+    <None Remove="samples\**" />
+    <!-- reflection harness that compares the CLI against the original GUI assembly -->
+    <Compile Remove="tools\**" />
+    <None Remove="tools\**" />
+    <Content Remove="tools\**" />
+    <EmbeddedResource Remove="tools\**" />
+    <!-- release artifacts produced by 'TE-CMD.exe package' -->
+    <Compile Remove="release\**" />
+    <None Remove="release\**" />
+    <Content Remove="release\**" />
+    <Compile Remove="dist\**" />
+    <None Remove="dist\**" />
+    <Content Remove="dist\**" />
+    <Compile Remove="stage\**" />
+    <None Remove="stage\**" />
+    <Content Remove="stage\**" />
+  </ItemGroup>
+
+</Project>

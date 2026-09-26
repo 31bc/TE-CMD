@@ -1,0 +1,30 @@
+# build output
+bin/
+obj/
+*.pdb
+*.user
+*.suo
+*.cache
+.vs/
+*.sln.docstates
+
+# release artifacts - published as GitHub Release assets, not in the source tree
+release/
+dist/
+stage/
+.package-staging/
+
+# runtime output written by the tool
+output/
+*.log
+*.tmp
+
+# development harness and local backups (excluded from the release packages too)
+tools/
+
+# editor / OS noise
+.idea/
+.vscode/
+Thumbs.db
+desktop.ini
+.DS_Store

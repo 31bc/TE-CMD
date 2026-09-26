@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# REVENANT caches and generated recovery output
+.ndl_cache/
+out_*/
+recovered_source/
+*.audit.json
+LIVE_RECOVERY_REPORT.json
+LIVE_REFINEMENT_REPORT.json
+
+# Targets and extracted artifacts may be proprietary or contain secrets.
+# Add redistributable regression fixtures explicitly with `git add -f`.
+*.exe
+*.dll
+*.pyd
+*.so
+*.dylib
+*.pyc
+*.nbc
+*.zip
+*.7z
+*.rar

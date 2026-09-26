@@ -1,0 +1,11 @@
+# Core PE parsing
+pefile>=2023.2.7
+
+# Native x86-64 disassembly
+capstone>=5.0.1
+
+# Nuitka compressed constants blobs
+zstandard>=0.22.0
+
+# Cross-version marshal and bytecode support
+xdis>=6.1.1

@@ -1,0 +1,24 @@
+THIRD PARTY NOTICES - TE-CMD v1.0.0
+============================================================
+
+This package bundles the following third party components.
+License texts that ship with the components are copied into this folder.
+
+1. ICSharpCode.Decompiler (ILSpy decompiler engine) 8.2.0.7535
+   Used to decompile .NET assemblies. License: MIT (icsharpcode/ILSpy).
+
+2. python helper scripts (pyi_extract.py, pyc_decompile.py,
+   magic_decompile.py, cpp_capstone.py) - part of this project.
+
+3. pycdc.exe / pycdas.exe
+   Bytecode decompiler binaries (zrax/pycdc). Original license:
+   https://github.com/zrax/pycdc
+
+4. Nuitka unpacker helpers (nuitka-revenant, nuitka-static-unpacker,
+   nuitka-themida-unpacker) - license files in this folder.
+
+5. pyz-unpacker, pyarmor-unpacker - license files in this folder.
+
+6. Python packages used at runtime when installed (not bundled):
+   capstone, pefile, zstandard, pycryptodome, cryptography,
+   decompyle3, uncompyle6, keyboard - see their upstream licenses.

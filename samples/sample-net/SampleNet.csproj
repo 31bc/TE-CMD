@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Minimal .NET test target used by 'TE-CMD.exe package' verification.
+       netstandard2.0 on purpose: the bundled ILSpy 8.2 engine reads every
+       assembly up to .NET 8, the packager must not depend on it. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>SampleNet</AssemblyName>
+    <RootNamespace>SampleNet</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <!-- no debug directory: the sample must not carry the build machine path -->
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <SignAssembly>false</SignAssembly>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+</Project>
