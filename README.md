@@ -1,5 +1,5 @@
 # TE-CMD
-<img height="400" width="500" alt="GIF" align="right" src="[https://github.com/31bc/TE-CMD/blob/main/bandicam_2026-09-25_11-50-50-654_online-video-cutter.com.gif)">
+
 
 Portable Windows command line front end for the DecompilerSuite 3.0.0.0 analysis
 engines: format detection, static PE analysis, .NET decompilation and unpacking
