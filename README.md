@@ -1,5 +1,6 @@
 # TE-CMD
 
+![TE-CMD performance demo](docs/banner.gif)
 
 Portable Windows command line front end for the DecompilerSuite 3.0.0.0 analysis
 engines: format detection, static PE analysis, .NET decompilation and unpacking
