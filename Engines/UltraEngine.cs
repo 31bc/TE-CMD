@@ -10,7 +10,7 @@ static class UltraEngine
     public static async Task ExtractUltraAsync(string path, string outDir, Action<string> log)
     {
         Directory.CreateDirectory(outDir);
-        log($"[ULTRA] 💪 Maximum strength mode for {Path.GetFileName(path)}");
+        log($"[ULTRA]  Maximum strength mode for {Path.GetFileName(path)}");
         log($"[ULTRA] Trying all engines + decryption layers...");
 
         string workPath = path;
@@ -23,7 +23,7 @@ static class UltraEngine
             decrypted = TryDecrypt(path, outDir, log);
             if (decrypted != null)
             {
-                log($"[ULTRA] ✅ Decrypted -> {Path.GetFileName(decrypted)} ({new FileInfo(decrypted).Length / 1024} KB)");
+                log($"[ULTRA]  Decrypted -> {Path.GetFileName(decrypted)} ({new FileInfo(decrypted).Length / 1024} KB)");
                 workPath = decrypted;
                 // Try to detect type of decrypted
                 var det = Helpers.Detector.Detect(workPath);
@@ -31,7 +31,7 @@ static class UltraEngine
             }
             else
             {
-                log($"[ULTRA] ❌ Decrypt failed with UltraStrongKey, trying alternative keys...");
+                log($"[ULTRA]  Decrypt failed with UltraStrongKey, trying alternative keys...");
                 decrypted = TryDecryptAlt(path, outDir, log);
                 if (decrypted != null) workPath = decrypted;
             }
@@ -48,7 +48,7 @@ static class UltraEngine
             log($"[ULTRA] → Trying PyInstaller (pycdc + PYZ)...");
             string p1 = Path.Combine(ultraOut, "pyinstaller");
             await PyInstallerEngine.ExtractAsync(workPath, p1, log);
-            if (Directory.GetFiles(p1, "*", SearchOption.AllDirectories).Length > 3) { log($"[ULTRA] ✅ PyInstaller success"); results.Add(p1); }
+            if (Directory.GetFiles(p1, "*", SearchOption.AllDirectories).Length > 3) { log($"[ULTRA]  PyInstaller success"); results.Add(p1); }
             else log($"[ULTRA] PyInstaller no result");
         } catch (Exception ex) { log($"[ULTRA] PyInstaller fail: {ex.Message}"); }
 
@@ -58,7 +58,7 @@ static class UltraEngine
             log($"[ULTRA] → Trying Nuitka (Revenant → Static)...");
             string p2 = Path.Combine(ultraOut, "nuitka");
             await NuitkaEngine.ExtractAsync(workPath, p2, log);
-            if (Directory.GetFiles(p2, "*", SearchOption.AllDirectories).Length > 2) { log($"[ULTRA] ✅ Nuitka success"); results.Add(p2); }
+            if (Directory.GetFiles(p2, "*", SearchOption.AllDirectories).Length > 2) { log($"[ULTRA]  Nuitka success"); results.Add(p2); }
         } catch (Exception ex) { log($"[ULTRA] Nuitka fail: {ex.Message}"); }
 
         // Try .NET
@@ -67,7 +67,7 @@ static class UltraEngine
             log($"[ULTRA] → Trying .NET (ILSpy)...");
             string p3 = Path.Combine(ultraOut, "dotnet");
             await DotNetEngine.DecompileAsync(workPath, p3, log);
-            if (Directory.GetFiles(p3, "*.cs", SearchOption.AllDirectories).Length > 0) { log($"[ULTRA] ✅ .NET success"); results.Add(p3); }
+            if (Directory.GetFiles(p3, "*.cs", SearchOption.AllDirectories).Length > 0) { log($"[ULTRA]  .NET success"); results.Add(p3); }
         } catch (Exception ex) { log($"[ULTRA] .NET fail: {ex.Message}"); }
 
         // Try C++
@@ -76,7 +76,7 @@ static class UltraEngine
             log($"[ULTRA] → Trying C++ (PE analysis)...");
             string p4 = Path.Combine(ultraOut, "cpp");
             await CppEngine.AnalyzeAsync(workPath, p4, log);
-            log($"[ULTRA] ✅ C++ analysis done"); results.Add(p4);
+            log($"[ULTRA]  C++ analysis done"); results.Add(p4);
         } catch (Exception ex) { log($"[ULTRA] C++ fail: {ex.Message}"); }
 
         // Try Pyz
@@ -126,7 +126,7 @@ static class UltraEngine
                 Directory.CreateDirectory(Path.GetDirectoryName(dst)!);
                 File.Copy(f, dst, true);
             }
-            log($"[ULTRA] 🏆 Best result copied to {outDir} (from {Path.GetFileName(best)})");
+            log($"[ULTRA]  Best result copied to {outDir} (from {Path.GetFileName(best)})");
         }
 
         // Try to brute force decrypt with common keys if still not success
@@ -136,7 +136,7 @@ static class UltraEngine
             await TryBruteForceKeys(workPath, outDir, log);
         }
 
-        log($"[ULTRA] 💪 Ultra Strong completed - tool strength: MAXIMUM");
+        log($"[ULTRA]  Ultra Strong completed - tool strength: MAXIMUM");
         log($"[ULTRA] Generated test files at D:\\LE\\TestEncrypted\\Encrypted for self-test");
     }
 
