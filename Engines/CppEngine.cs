@@ -58,7 +58,7 @@ static class CppEngine
         if (Helpers.Detector.Detect(exePath) != Helpers.PackerType.Cpp)
             log($"[Smart] Warning: file detected as {Helpers.Detector.Describe(Helpers.Detector.Detect(exePath))} but analyzed as C++ - may be packed");
 
-        log("✅ [KILLER] C++ analysis completed - for full decompilation use Ghidra/IDA/x64dbg + capstone.txt");
+        log(" [KILLER] C++ analysis completed - for full decompilation use Ghidra/IDA/x64dbg + capstone.txt");
         log($"[Killer] Output: pe_report.txt, sections.txt, strings.txt ({strings.Count}), imports.txt, hexdump.txt, compiler.txt, protection.txt, yara.txt, capstone.asm, entropy.txt, anti.txt");
         log($"[Killer] Total output size: {Directory.GetFiles(outDir,"*",SearchOption.AllDirectories).Sum(f=>new FileInfo(f).Length)/1024} KB vs original {origSize/1024} KB");
     }
