@@ -76,13 +76,13 @@ static class DotNetEngine
                 log($"[Killer] .NET strings: {strs.Count}");
             } catch {}
 
-            log($"✅ [KILLER] Decompiled {count} C# files in {srcDir} (failed {failed})");
+            log($" [KILLER] Decompiled {count} C# files in {srcDir} (failed {failed})");
             log($"[Killer] Output: {all} + {srcDir} + protection.txt + dotnet_strings.txt");
             if (isObf) log("[Killer] Obfuscated - check de4dot_output and try manual with de4dot GUI");
         }
         catch(Exception ex)
         {
-            log($"❌ [KILLER] .NET Error: {ex.Message}");
+            log($" [KILLER] .NET Error: {ex.Message}");
             log("[Killer] Try: de4dot, deobfuscator, or dnSpy with string decrypt plugin");
             throw;
         }
